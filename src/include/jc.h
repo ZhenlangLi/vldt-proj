@@ -94,7 +94,7 @@ typedef struct {
 typedef struct {
 	Float	x;
 	Float	y;
-} POINT;
+} J_POINT;
 
 /**
  * @brief 一组数据
@@ -168,7 +168,7 @@ typedef struct {
 	Int32 host_position;
 	Vector2D side_size;
 	Float module_size;
-	POINT pattern_positions[4];
+	J_POINT pattern_positions[4];
 	J_Metadata metadata;
 	BYTE* palette;
 	J_Data* data;
@@ -190,7 +190,7 @@ typedef enum {
 typedef struct {
     Int32        type;
     Float        module_size;
-    POINT        center;            // Finder Pattern的中心所在坐标
+    J_POINT        center;            // Finder Pattern的中心所在坐标
     Int32        found_count;
     Int32        direction;
 } J_Finder_Pattern, J_Alignment_Pattern;
@@ -216,15 +216,7 @@ extern Int32 generateJABCode(J_Encode* enc, J_Data* data);
     // 应当封装为一个函数
 
 // Decoder
-// 8/3/2020改进
-extern J_Data* decodeJCode(const char src[], Int32 mode, Int32* status);    // Decode (标准)
-// 8/3/2020改进
-extern J_Data* decodeJCodeEx(const char src[], Int32 mode, Int32* status, J_Decoded_Symbol* symbols);  // Decode（专业）
-// 9/3/2020改进
-extern J_Data* decodeJCodeEx_using_found_symbol(J_Found_Symbol* found_ms,
-                                                Int32 mode,
-                                                Int32* status,
-                                                J_Decoded_Symbol* symbols);
+// 9.3.2020 移动到jc_decoder.h
 
 
 //// Image

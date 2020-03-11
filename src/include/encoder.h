@@ -102,7 +102,6 @@ typedef struct {
 
 static const Vector2D jab_symbol_pos[MAX_SYMBOL_NUMBER] =
 { 	{ 0, 0},
-    { 0, -1}
 };
 
 /**
